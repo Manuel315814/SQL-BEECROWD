@@ -35,3 +35,62 @@ products.id_providers=providers.id
 WHERE 
 providers.name = 'Ajax SA';
 ```
+- ** EJERCICIO 2622 Legal Person **
+```
+Solucion:
+SELECT c.name
+FROM customers c
+INNER JOIN
+legal_person lp
+ON
+c.id = lp.id_customers;
+```
+- ** EJERCICIO 2744 Passwords **
+```
+Solucion:
+SELECT id, password, MD5(password)
+FROM account;
+```
+- ** EJERCICIO 2746 Viruses **
+```
+Solucion:
+SELECT REPLACE(name, 'H1', 'X') AS name
+FROM virus;
+```
+- ** EJERCICIO 2604 Under 10 or Greater Than 100 **
+```
+Solucion:
+SELECT id, name
+FROM products
+WHERE price < 10 OR price > 100;
+```
+- ** EJERCICIO 2613 Cheap Movies **
+```
+Solucion:
+SELECT m.id, m.name
+FROM movies m
+INNER JOIN
+prices p
+ON
+m.id_prices = p.id
+WHERE
+p.value < 2;
+```
+- ** EJERCICIO 2619 Super Luxury **
+```
+Solucion:
+SELECT p.name, pr.name, p.price
+FROM products p
+INNER JOIN
+providers pr
+ON
+p.id_providers = pr.id
+INNER JOIN 
+categories c
+ON
+p.id_categories = c.id
+WHERE
+p.price > 1000 AND c.name='Super Luxury';
+```
+
+

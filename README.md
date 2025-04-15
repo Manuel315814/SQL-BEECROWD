@@ -108,8 +108,28 @@ ON
 a.id_work_shift = w.id
 GROUP BY d.id
 ORDER BY salary DESC;
-![image](https://github.com/user-attachments/assets/b872d607-e81c-4ef4-b473-8744eb9e6284)
 ```
+![image](https://github.com/user-attachments/assets/b872d607-e81c-4ef4-b473-8744eb9e6284)
+- ** EJERCICIO 2618 Imported Products **
+```
+Solucion:
+SELECT p.name, pr.name, c.name
+FROM
+products p
+INNER JOIN
+providers pr
+ON
+p.id_providers = pr.id
+INNER JOIN
+categories c
+ON
+p.id_categories = c.id
+WHERE 
+pr.name = 'Sansul SA' AND c.name = 'Imported';
+```
+![image](https://github.com/user-attachments/assets/4b62bf0c-861e-46b9-9e44-a2c5348b7736)
+- ** EJERCICIO 261 **
+```
+Solucion:
 
-
-
+```

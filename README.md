@@ -92,5 +92,22 @@ p.id_categories = c.id
 WHERE
 p.price > 1000 AND c.name='Super Luxury';
 ```
+- ** EJERCICIO 2994 How much does a Doctor earn? **
+```
+Solucion:
+SELECT d.name, ROUND( SUM(a.hours*150+a.hours*150*(w.bonus/100)),1) AS salary
+FROM 
+doctors d
+INNER JOIN 
+attendances a
+ON 
+d.id = a.id_doctor
+INNER JOIN 
+work_shifts w
+ON
+a.id_work_shift = w.id
+GROUP BY d.id
+ORDER BY salary DESC;
+```
 
 

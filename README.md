@@ -108,7 +108,8 @@ ON
 a.id_work_shift = w.id
 GROUP BY d.id
 ORDER BY salary DESC;
-```
 ![image](https://github.com/user-attachments/assets/b872d607-e81c-4ef4-b473-8744eb9e6284)
+```
+
 
 

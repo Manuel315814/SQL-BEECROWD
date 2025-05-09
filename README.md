@@ -57,7 +57,7 @@ SELECT DISTINCT (city)
 FROM providers
 ORDER BY city ASC;
 ```
-![image](https://github.com/user-attachments/assets/ec948f76-43d9-41f3-9049-9a70483d1d51)
+![image](https://github.com/user-attachments/assets/24929f7c-9090-4249-a4f6-cfd89435dd5f)
 
 - ** EJERCICIO 2608 Higher and Lower Price **
 ```

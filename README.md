@@ -65,12 +65,66 @@ SELECT MAX(price), MIN(price)
 FROM products;
 ```
 ![image](https://github.com/user-attachments/assets/3c3333f5-42fc-41c5-9ba4-999ecf3b72d6)
+- ** EJERCICIO 2609 Products by Categories **
+```
+Solucion:
+SELECT c.name, SUM(p.amount) AS sum
+FROM products p
+JOIN categories c ON p.id_categories = c.id
+GROUP BY c.name;
+```
+![image](https://github.com/user-attachments/assets/05efd491-164b-43cd-ba33-67b482e81e28)
+
+- ** EJERCICIO 2610 Average Value of Products **
+```
+Solucion:
+SELECT ROUND(AVG(price), 2) AS price
+FROM products;
+```
+![image](https://github.com/user-attachments/assets/fac6504e-a585-44ac-be23-99fd2149c4d4)
+- ** EJERCICIO 2611 Action Movies **
+```
+Solucion:
+SELECT m.id, m.name
+FROM movies m
+JOIN genres g 
+ON 
+m.id_genres = g.id
+WHERE g.description = 'Action';
+```
+![image](https://github.com/user-attachments/assets/452ac428-2091-45e8-a486-0f20b9a7f06b)
+
+- ** EJERCICIO 2613 Cheap Movies **
+```
+Solucion:
+SELECT m.id, m.name
+FROM movies m
+INNER JOIN
+prices p
+ON
+m.id_prices = p.id
+WHERE
+p.value < 2;
+```
+![image](https://github.com/user-attachments/assets/d20a85ec-5f33-484e-bad7-577059ea94e2)
+- ** EJERCICIO 2614 September Rentals **
+```
+Solucion:
+SELECT c.name, r.rentals_date
+FROM rentals r
+JOIN customers c ON r.id_customers = c.id
+WHERE r.rentals_date >= '2016-09-01' AND r.rentals_date < '2016-10-01';
+```
+![image](https://github.com/user-attachments/assets/aa9a126d-3e06-4256-9642-33bf7543de0a)
+
 - ** EJERCICIO 2615 Expanding the Business **
 ```
 Solucion:
 SELECT DISTINCT(city)
 FROM customers;
 ```
+![image](https://github.com/user-attachments/assets/731f3034-49a0-4432-b362-81b5fca1b6bc)
+
 - ** EJERCICIO 2617 Provider Ajax SA **
 ```
 Solucion:
@@ -102,19 +156,6 @@ FROM account;
 Solucion:
 SELECT REPLACE(name, 'H1', 'X') AS name
 FROM virus;
-```
-
-- ** EJERCICIO 2613 Cheap Movies **
-```
-Solucion:
-SELECT m.id, m.name
-FROM movies m
-INNER JOIN
-prices p
-ON
-m.id_prices = p.id
-WHERE
-p.value < 2;
 ```
 - ** EJERCICIO 2619 Super Luxury **
 ```

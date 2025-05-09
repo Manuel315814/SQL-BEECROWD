@@ -272,18 +272,85 @@ natural_person
 ```
 ![image](https://github.com/user-attachments/assets/3ad04b3a-23c7-4b0a-891d-c0f8663f8165)
 
+- ** EJERCICIO 2737 Lawyers **
+```
+Solucion:
+(
+  SELECT name, customers_number
+  FROM lawyers
+  ORDER BY customers_number DESC
+  LIMIT 1
+)
+UNION ALL
+(
+  SELECT name, customers_number
+  FROM lawyers
+  ORDER BY customers_number ASC
+  LIMIT 1
+)
+UNION ALL
+(
+  SELECT 'Average' AS name, CAST(AVG(customers_number) AS INTEGER) AS customers_number
+  FROM lawyers
+);
+```
+![image](https://github.com/user-attachments/assets/ffb8a00a-dfe2-467f-af7e-5ee35a3a055f)
+
+- ** EJERCICIO 2738 Contest **
+```
+Solucion:
+SELECT 
+c.name,
+ROUND(((s.math * 2) + (s.specific * 3) + (s.project_plan * 5)) / 10.0, 2)
+AS avg
+FROM 
+candidate c
+JOIN 
+score s 
+ON 
+c.id = s.candidate_id
+ORDER BY 
+avg DESC;
+```
+![image](https://github.com/user-attachments/assets/cbccab1c-cec6-4618-b659-bfcbcb572dab)
+
+- ** EJERCICIO 2743 Number of Characters **
+```
+Solucion:
+SELECT name, LENGTH(name)
+FROM
+people
+ORDER BY LENGTH(name) DESC;
+```
+![image](https://github.com/user-attachments/assets/2937315b-7b35-4869-8f0d-b2ede2b0025b)
+
 - ** EJERCICIO 2744 Passwords **
 ```
 Solucion:
 SELECT id, password, MD5(password)
 FROM account;
 ```
+![image](https://github.com/user-attachments/assets/00465fc9-3da8-44e2-9243-60a2644e2791)
+
+- ** EJERCICIO 2745 Taxes **
+```
+Solucion:
+SELECT 
+name, ROUND(salary*0.10, 2) as tax
+FROM
+people
+WHERE
+salary > 3000;
+```
+![image](https://github.com/user-attachments/assets/8c9329fb-2e3d-46b1-a6a1-f191e372dc17)
+
 - ** EJERCICIO 2746 Viruses **
 ```
 Solucion:
 SELECT REPLACE(name, 'H1', 'X') AS name
 FROM virus;
 ```
+![image](https://github.com/user-attachments/assets/615cce18-e129-4815-a1d7-a9e9264320b4)
 
 - ** EJERCICIO 2994 How much does a Doctor earn? **
 ```
@@ -305,26 +372,8 @@ ORDER BY salary DESC;
 ![image](https://github.com/user-attachments/assets/b872d607-e81c-4ef4-b473-8744eb9e6284)
 
 
-- ** EJERCICIO 2743 Number of Characters **
-```
-Solucion:
-SELECT name, LENGTH(name)
-FROM
-people
-ORDER BY LENGTH(name) DESC;
-```
-![image](https://github.com/user-attachments/assets/2937315b-7b35-4869-8f0d-b2ede2b0025b)
-- ** EJERCICIO 2745 Taxes **
-```
-Solucion:
-SELECT 
-name, ROUND(salary*0.10, 2) as tax
-FROM
-people
-WHERE
-salary > 3000;
-```
-![image](https://github.com/user-attachments/assets/8c9329fb-2e3d-46b1-a6a1-f191e372dc17)
+
+
 
 
 

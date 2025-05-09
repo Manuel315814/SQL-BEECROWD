@@ -128,8 +128,19 @@ WHERE
 pr.name = 'Sansul SA' AND c.name = 'Imported';
 ```
 ![image](https://github.com/user-attachments/assets/4b62bf0c-861e-46b9-9e44-a2c5348b7736)
-- ** EJERCICIO 261 **
+- ** EJERCICIO 2620 **
 ```
 Solucion:
-
+SELECT
+c.name, o.id
+FROM
+customers c
+INNER JOIN
+orders o
+ON
+c.id=o.id_customers 
+WHERE 
+EXTRACT(MONTH FROM o.orders_date)<=6;
 ```
+![image](https://github.com/user-attachments/assets/8c631907-09dd-481f-a4fc-e8108d3176bd)
+

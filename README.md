@@ -6,6 +6,15 @@ SELECT name, street
 FROM customers
 WHERE city = 'Porto Alegre';
 ```
+- ** EJERCICIO 2606 Categories **
+```
+solucion:
+SELECT p.id, p.name
+FROM products p
+JOIN categories c ON p.id_categories = c.id
+WHERE c.name LIKE 'super%';
+```
+![image](https://github.com/user-attachments/assets/5b6d604d-3ca5-4858-9b23-fa0a4af75e9d)
 - ** EJERCICIO 2607 Providers' City in Alphabetical Order **
 ```
 Solucion:
@@ -186,7 +195,15 @@ WHERE
 salary > 3000;
 ```
 ![image](https://github.com/user-attachments/assets/8c9329fb-2e3d-46b1-a6a1-f191e372dc17)
-
+- ** EJERCICIO 2617 Providers Ajax SA **
+```
+Solucion:
+SELECT p.name AS product_name, pr.name AS provider_name
+FROM products p
+JOIN providers pr ON p.id_providers = pr.id
+WHERE pr.name = 'Ajax SA';
+```
+![image](https://github.com/user-attachments/assets/28cd16c8-34f3-4a92-8848-f6bb76e4b573)
 
 
 

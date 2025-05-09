@@ -231,6 +231,24 @@ c.id = lp.id_customers;
 ```
 ![image](https://github.com/user-attachments/assets/bf1f6aa9-d1ef-4e7b-b2d3-ac9a07f25d8e)
 
+- ** EJERCICIO 2623 Categories with Various Products **
+```
+Solucion:
+SELECT 
+products.name, categories.name
+FROM
+products
+INNER JOIN
+categories
+ON
+products.id_categories=categories.id
+WHERE
+products.amount > 100 AND categories.id IN (1,2,3,6,9)
+ORDER BY
+categories.id ASC;
+```
+![image](https://github.com/user-attachments/assets/54810e71-896d-4005-a661-d580fdf3d936)
+
 - ** EJERCICIO 2624 Number of Cities per Customers **
 ```
 Solucion:
@@ -238,6 +256,21 @@ SELECT COUNT(DISTINCT(city))
 FROM customers;
 ```
 ![image](https://github.com/user-attachments/assets/acd83124-e8e5-4cfa-a4df-b0d75386d053)
+
+- ** EJERCICIO 2625 CPF Validation **
+```
+Solucion:
+SELECT
+ LPAD(SUBSTRING(cpf, 1, 3), 3, '0') || '.' ||
+ LPAD(SUBSTRING(cpf, 4, 3), 3, '0') || '.' ||
+ LPAD(SUBSTRING(cpf, 7, 3), 3, '0') || '-' ||
+ LPAD(SUBSTRING(cpf, 10, 2), 2, '0')
+AS
+CPF
+FROM 
+natural_person
+```
+![image](https://github.com/user-attachments/assets/3ad04b3a-23c7-4b0a-891d-c0f8663f8165)
 
 - ** EJERCICIO 2744 Passwords **
 ```

@@ -166,6 +166,26 @@ SELECT COUNT(DISTINCT(city))
 FROM customers;
 ```
 ![image](https://github.com/user-attachments/assets/acd83124-e8e5-4cfa-a4df-b0d75386d053)
+- ** EJERCICIO 2743 Number of Characters **
+```
+Solucion:
+SELECT name, LENGTH(name)
+FROM
+people
+ORDER BY LENGTH(name) DESC;
+```
+![image](https://github.com/user-attachments/assets/2937315b-7b35-4869-8f0d-b2ede2b0025b)
+- ** EJERCICIO 2745 Taxes **
+```
+Solucion:
+SELECT 
+name, ROUND(salary*0.10, 2) as tax
+FROM
+people
+WHERE
+salary > 3000;
+```
+![image](https://github.com/user-attachments/assets/8c9329fb-2e3d-46b1-a6a1-f191e372dc17)
 
 
 

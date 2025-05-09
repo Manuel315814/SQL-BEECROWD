@@ -314,6 +314,48 @@ avg DESC;
 ```
 ![image](https://github.com/user-attachments/assets/cbccab1c-cec6-4618-b659-bfcbcb572dab)
 
+- ** EJERCICIO 2739 Payday **
+```
+Solucion:
+
+```
+- ** EJERCICIO 2740 League **
+```
+Solucion:
+SELECT 'Podium: ' || team AS name
+FROM league
+WHERE position <= 3
+
+UNION ALL
+
+SELECT 'Demoted: ' || team AS name
+FROM league
+WHERE position >= 14;
+```
+![image](https://github.com/user-attachments/assets/7f8311c0-ee08-4f1f-b9e4-e4d2aa251af4)
+
+- ** EJERCICIO 2741 Payday **
+```
+Solucion:
+SELECT 'Approved: ' || name AS name, grade
+FROM students
+WHERE grade >= 7
+ORDER BY grade DESC;
+```
+![image](https://github.com/user-attachments/assets/9f23a524-0d42-4a41-8713-a9986f0f81f5)
+
+- ** EJERCICIO 2742 Richard's Multiverse **
+```
+Solucion:
+SELECT lr.name, ROUND(lr.omega * 1.618, 3) AS "The N Factor"
+FROM life_registry lr
+JOIN dimensions d ON lr.dimensions_id = d.id
+WHERE (d.name = 'C875' OR d.name = 'C774')
+  AND lr.name LIKE 'Richard%'
+ORDER BY lr.omega ASC;
+```
+![image](https://github.com/user-attachments/assets/d20df2d6-4a63-4434-9b0b-c7033135a649)
+
 - ** EJERCICIO 2743 Number of Characters **
 ```
 Solucion:
@@ -351,6 +393,15 @@ SELECT REPLACE(name, 'H1', 'X') AS name
 FROM virus;
 ```
 ![image](https://github.com/user-attachments/assets/615cce18-e129-4815-a1d7-a9e9264320b4)
+
+- ** EJERCICIO 2993 Most Frequent **
+```
+Solucion:
+SELECT amount
+FROM value_table
+GROUP BY amount ORDER BY COUNT(amount) DESC LIMIT 1;
+```
+![image](https://github.com/user-attachments/assets/cd1108dd-7192-4558-a998-0c0fdca0d28e)
 
 - ** EJERCICIO 2994 How much does a Doctor earn? **
 ```

@@ -1,4 +1,12 @@
 # SQL-BEECROWD
+- ** EJERCICIO 2602 Basic Select **
+```
+solucion:
+SELECT name
+FROM customers
+WHERE state='RS';
+```
+![image](https://github.com/user-attachments/assets/a07e6c02-c6ef-4eaa-b7ef-b9b2dfe0ad51)
 - ** EJERCICIO 2603 Customer Address **
 ```
 solucion:
@@ -6,6 +14,33 @@ SELECT name, street
 FROM customers
 WHERE city = 'Porto Alegre';
 ```
+![image](https://github.com/user-attachments/assets/e62173ef-5bab-4170-9d23-a84488855b6f)
+- ** EJERCICIO 2604 Under 10 or Greater Than 100 **
+```
+Solucion:
+SELECT id, name
+FROM products
+WHERE price < 10 OR price > 100;
+```
+![image](https://github.com/user-attachments/assets/56d93a5e-e8df-4fdb-a954-c1c1891f4cb4)
+
+- ** EJERCICIO 2605 Executive Representatives **
+```
+solucion:
+SELECT p.name, pr.name
+FROM products p
+INNER JOIN
+providers pr
+ON
+p.id_providers = pr.id
+INNER JOIN
+categories c
+ON
+p.id_categories = c.id
+WHERE 
+c.id=6;
+```
+![image](https://github.com/user-attachments/assets/2aaf5fa7-69db-4601-8967-39e0f7072f0d)
 - ** EJERCICIO 2606 Categories **
 ```
 solucion:
@@ -14,7 +49,7 @@ FROM products p
 JOIN categories c ON p.id_categories = c.id
 WHERE c.name LIKE 'super%';
 ```
-![image](https://github.com/user-attachments/assets/5b6d604d-3ca5-4858-9b23-fa0a4af75e9d)
+![image](https://github.com/user-attachments/assets/5a942937-afff-4228-8b64-d0a5c7b916e1)
 - ** EJERCICIO 2607 Providers' City in Alphabetical Order **
 ```
 Solucion:
@@ -22,12 +57,15 @@ SELECT DISTINCT (city)
 FROM providers
 ORDER BY city ASC;
 ```
+![image](https://github.com/user-attachments/assets/ec948f76-43d9-41f3-9049-9a70483d1d51)
+
 - ** EJERCICIO 2608 Higher and Lower Price **
 ```
 Solucion:
 SELECT MAX(price), MIN(price)
 FROM products;
 ```
+![image](https://github.com/user-attachments/assets/5b6d604d-3ca5-4858-9b23-fa0a4af75e9d)
 - ** EJERCICIO 2615 Expanding the Business **
 ```
 Solucion:
@@ -66,13 +104,7 @@ Solucion:
 SELECT REPLACE(name, 'H1', 'X') AS name
 FROM virus;
 ```
-- ** EJERCICIO 2604 Under 10 or Greater Than 100 **
-```
-Solucion:
-SELECT id, name
-FROM products
-WHERE price < 10 OR price > 100;
-```
+
 - ** EJERCICIO 2613 Cheap Movies **
 ```
 Solucion:

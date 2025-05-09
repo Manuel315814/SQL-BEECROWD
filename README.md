@@ -128,7 +128,7 @@ WHERE
 pr.name = 'Sansul SA' AND c.name = 'Imported';
 ```
 ![image](https://github.com/user-attachments/assets/4b62bf0c-861e-46b9-9e44-a2c5348b7736)
-- ** EJERCICIO 2620 **
+- ** EJERCICIO 2620 Orders in First Half **
 ```
 Solucion:
 SELECT
@@ -143,4 +143,31 @@ WHERE
 EXTRACT(MONTH FROM o.orders_date)<=6;
 ```
 ![image](https://github.com/user-attachments/assets/8c631907-09dd-481f-a4fc-e8108d3176bd)
+- ** EJERCICIO 2621 Amounts Between 10 and 20 **
+```
+Solucion:
+SELECT 
+pr.name
+FROM
+providers p
+INNER JOIN
+products pr
+ON 
+p.id = pr.id_providers
+WHERE
+(pr.amount>=10 AND pr.amount<=20) AND
+p.name LIKE 'P%';
+```
+![image](https://github.com/user-attachments/assets/6bc5be02-9632-4b1c-9e8a-a1ab56054a8f)
+- ** EJERCICIO 2624 Number of Cities per Customers **
+```
+Solucion:
+SELECT COUNT(DISTINCT(city))
+FROM customers;
+```
+![image](https://github.com/user-attachments/assets/acd83124-e8e5-4cfa-a4df-b0d75386d053)
+
+
+
+
 

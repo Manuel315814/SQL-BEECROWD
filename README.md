@@ -57,15 +57,14 @@ SELECT DISTINCT (city)
 FROM providers
 ORDER BY city ASC;
 ```
-![image](https://github.com/user-attachments/assets/24929f7c-9090-4249-a4f6-cfd89435dd5f)
-
+![image](https://github.com/user-attachments/assets/cbf31e98-ba44-4a68-8744-ff1cbe245901)
 - ** EJERCICIO 2608 Higher and Lower Price **
 ```
 Solucion:
 SELECT MAX(price), MIN(price)
 FROM products;
 ```
-![image](https://github.com/user-attachments/assets/5b6d604d-3ca5-4858-9b23-fa0a4af75e9d)
+![image](https://github.com/user-attachments/assets/3c3333f5-42fc-41c5-9ba4-999ecf3b72d6)
 - ** EJERCICIO 2615 Expanding the Business **
 ```
 Solucion:

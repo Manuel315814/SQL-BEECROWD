@@ -393,6 +393,40 @@ SELECT REPLACE(name, 'H1', 'X') AS name
 FROM virus;
 ```
 ![image](https://github.com/user-attachments/assets/615cce18-e129-4815-a1d7-a9e9264320b4)
+- ** EJERCICIO 2988 Cearense Championship **
+```
+Solucion:
+SELECT
+    t.name,
+    COUNT(m.id) AS matches,
+    SUM(CASE
+        WHEN (t.id = m.team_1 AND m.team_1_goals > m.team_2_goals) OR
+             (t.id = m.team_2 AND m.team_2_goals > m.team_1_goals)
+        THEN 1 ELSE 0 END) AS victories,
+    SUM(CASE
+        WHEN (t.id = m.team_1 AND m.team_1_goals < m.team_2_goals) OR
+             (t.id = m.team_2 AND m.team_2_goals < m.team_1_goals)
+        THEN 1 ELSE 0 END) AS defeats,
+    SUM(CASE
+        WHEN m.team_1_goals = m.team_2_goals THEN 1 ELSE 0 END) AS draws,
+    SUM(CASE
+        WHEN (t.id = m.team_1 AND m.team_1_goals > m.team_2_goals) OR
+             (t.id = m.team_2 AND m.team_2_goals > m.team_1_goals)
+        THEN 3
+        WHEN m.team_1_goals = m.team_2_goals THEN 1
+        ELSE 0 END) AS score
+FROM
+    teams t
+JOIN
+    matches m
+    ON t.id = m.team_1 OR t.id = m.team_2
+GROUP BY
+    t.name
+ORDER BY
+    score DESC;
+```
+![image](https://github.com/user-attachments/assets/c0d04be4-6454-4750-a5f2-e1cefa071fb5)
+![image](https://github.com/user-attachments/assets/6fc0fb2a-c059-442e-9a8c-d2c91d19070e)
 
 - ** EJERCICIO 2993 Most Frequent **
 ```

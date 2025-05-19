@@ -428,6 +428,40 @@ ORDER BY
 ![image](https://github.com/user-attachments/assets/c0d04be4-6454-4750-a5f2-e1cefa071fb5)
 ![image](https://github.com/user-attachments/assets/6fc0fb2a-c059-442e-9a8c-d2c91d19070e)
 
+- ** EJERCICIO 2989 Departments and Divisions **
+```
+Solucion:
+
+```
+
+- ** EJERCICIO 2990 Employees CPF **
+```
+Solucion:
+SELECT 
+  e.cpf,
+  e.enome,
+  d.dnome
+FROM 
+  empregados e
+JOIN 
+  departamentos d ON e.dnumero = d.dnumero
+WHERE 
+  e.cpf NOT IN (SELECT cpf_emp FROM trabalha)
+ORDER BY 
+  e.cpf;
+```
+![image](https://github.com/user-attachments/assets/cda34516-69a1-4815-b302-1c76cd2281fa)
+
+- ** EJERCICIO 2991 Department Statistics **
+```
+Solucion:
+
+```
+- ** EJERCICIO 2992 Highest Avarage Salary Divisions **
+```
+Solucion:
+
+```
 - ** EJERCICIO 2993 Most Frequent **
 ```
 Solucion:
@@ -456,11 +490,115 @@ ORDER BY salary DESC;
 ```
 ![image](https://github.com/user-attachments/assets/b872d607-e81c-4ef4-b473-8744eb9e6284)
 
+- ** EJERCICIO 2995 The Sensor Message **
+```
+Solucion:
+SELECT 
+  temperature,
+  COUNT(*) AS number_of_records
+FROM 
+  records
+GROUP BY 
+  mark, temperature
+ORDER BY 
+  MIN(id);
+```
+![image](https://github.com/user-attachments/assets/6fbb7e7e-8703-4530-b432-e7f78bfce1dd)
 
+- ** EJERCICIO 2996 Package Delivery **
+```
+Solucion:
 
+```
 
+- ** EJERCICIO 2997 Employees Payment **
+```
+Solucion:
 
+```
 
+- ** EJERCICIO 2998 The Payback **
+```
+Solucion:
+WITH accumulated_profits AS (
+  SELECT
+    o.client_id,
+    o.month,
+    SUM(o.profit) OVER (PARTITION BY o.client_id ORDER BY o.month) AS accumulated_profit
+  FROM operations o
+),
+payback_info AS (
+  SELECT
+    c.id,
+    c.name,
+    c.investment,
+    MIN(CASE WHEN ap.accumulated_profit >= c.investment THEN ap.month ELSE NULL END) AS month_of_payback,
+    -- The accumulated profit at the payback month:
+    MIN(CASE WHEN ap.accumulated_profit >= c.investment THEN ap.accumulated_profit ELSE NULL END) AS profit_at_payback
+  FROM clients c
+  LEFT JOIN accumulated_profits ap ON c.id = ap.client_id
+  GROUP BY c.id, c.name, c.investment
+)
+SELECT
+  name,
+  investment,
+  month_of_payback AS month_of_payback,
+  COALESCE(profit_at_payback - investment, 0) AS return
+FROM payback_info
+WHERE month_of_payback IS NOT NULL
+ORDER BY return DESC;
 
+```
 
+- ** EJERCICIO 2999 Highest Division Salary **
+```
+Solucion:
+
+```
+
+- ** EJERCICIO 2301 Update sem Where **
+```
+Solucion:
+SELECT
+  name,
+  CASE type
+    WHEN 'A' THEN 20.0
+    WHEN 'B' THEN 70.0
+    WHEN 'C' THEN 530.5
+  END AS price
+FROM products
+ORDER BY
+  CASE type
+    WHEN 'A' THEN 1
+    WHEN 'B' THEN 2
+    WHEN 'C' THEN 3
+  END,
+  id DESC;
+```
+![image](https://github.com/user-attachments/assets/7170e5c9-e194-419d-a291-cc4a3a82b302)
+![image](https://github.com/user-attachments/assets/b223f96a-1794-4e1b-a2eb-0313cb2065af)
+
+- ** EJERCICIO 2380 Sillas Adyacentes **
+```
+Solucion:
+
+```
+
+- ** EJERCICIO 2381 Clasificación de un Árbol **
+```
+Solucion:
+
+```
+
+- ** EJERCICIO 2382 Seguidores **
+```
+Solucion:
+
+```
+
+- ** EJERCICIO 2383 Segundo Mayor y Menor **
+```
+Solucion:
+
+```
 
